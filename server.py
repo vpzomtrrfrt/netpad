@@ -24,6 +24,8 @@ def listenthread(c):
 			dev.emit((int(s[0]), int(s[1])), int(s[2]))
 		else:
 			print l+" is not valid"
+			c.close()
+			break
 
 s = socket.socket()
 s.bind(('', port))

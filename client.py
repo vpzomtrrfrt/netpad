@@ -1,32 +1,41 @@
 import Tkinter as tk
-import uinput, socket
+import socket
 
 s = socket.socket()
 s.connect((raw_input("Connect to: "), 4263))
+
+BTN_0 = (1, 256)
+BTN_1 = (1, 257)
+BTN_2 = (1, 258)
+BTN_3 = (1, 259)
+BTN_4 = (1, 260)
+BTN_8 = (1, 264)
+ABS_X = (3, 0)
+ABS_Y = (3, 1)
 
 def emit(t, v):
 	s.send(str(t[0])+":"+str(t[1])+":"+str(v)+"\n")
 
 def onEnter(event):
-	emit(uinput.BTN_8,1)
+	emit(BTN_8,1)
 def onEnterRel(event):
-	emit(uinput.BTN_8,0)
+	emit(BTN_8,0)
 def onCtrl(ev):
-	emit(uinput.BTN_1,1)
+	emit(BTN_1,1)
 def onCtrlRel(ev):
-	emit(uinput.BTN_1,0)
+	emit(BTN_1,0)
 def onShift(ev):
-	emit(uinput.BTN_0,1)
+	emit(BTN_0,1)
 def onShiftRel(ev):
-	emit(uinput.BTN_0,0)
+	emit(BTN_0,0)
 def onTrig(ev):
 	r = None
 	if ev.keycode == 52:
-		r = uinput.BTN_2
+		r = BTN_2
 	if ev.keycode == 53:
-		r = uinput.BTN_3
+		r = BTN_3
 	if ev.keycode == 54:
-		r = uinput.BTN_4
+		r = BTN_4
 	if not (r == None):
 		t = 0
 		if ev.type == "2":
@@ -48,8 +57,8 @@ def onDir(ev):
 		xvr=1
 	if ev.keycode == 116:
 		yvd=1
-	emit(uinput.ABS_X, (xvr-xvl)*ra)
-	emit(uinput.ABS_Y, (yvd-yvu)*ra)
+	emit(ABS_X, (xvr-xvl)*ra)
+	emit(ABS_Y, (yvd-yvu)*ra)
 def onDirRel(ev):
 	global xvl, xvr, yvu, yvd
 	if ev.keycode == 111:
@@ -60,8 +69,8 @@ def onDirRel(ev):
 		xvr=0
 	if ev.keycode == 116:
 		yvd=0
-	emit(uinput.ABS_X, (xvr-xvl)*ra)
-	emit(uinput.ABS_Y, (yvd-yvu)*ra)
+	emit(ABS_X, (xvr-xvl)*ra)
+	emit(ABS_Y, (yvd-yvu)*ra)
 root = tk.Tk()
 root.geometry('300x200')
 root.bind('<KeyPress-Return>', onEnter)
