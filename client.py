@@ -44,7 +44,7 @@ def onTrig(ev):
 			t = 1
 		emit(r, t)
 	print r
-	print e.keysym.lower()
+	print ev.keysym.lower()
 xvl = 0
 xvr = 0
 yvu = 0
