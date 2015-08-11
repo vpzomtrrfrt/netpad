@@ -49,13 +49,13 @@ ra = 32767
 def onDir(ev):
 	global xvl, xvr, yvu, yvd
 	print ev.keycode
-	if ev.keycode == 111 || ev.keycode == 8320768:
+	if ev.keycode == 111 or ev.keycode == 8320768:
 		yvu=1
-	if ev.keycode == 113 || ev.keycode == 8124162:
+	if ev.keycode == 113 or ev.keycode == 8124162:
 		xvl=1
-	if ev.keycode == 114 || ev.keycode == 8189699:
+	if ev.keycode == 114 or ev.keycode == 8189699:
 		xvr=1
-	if ev.keycode == 116 || ev.keycode == 8255233:
+	if ev.keycode == 116 or ev.keycode == 8255233:
 		yvd=1
 	emit(ABS_X, (xvr-xvl)*ra)
 	emit(ABS_Y, (yvd-yvu)*ra)
