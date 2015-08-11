@@ -61,13 +61,13 @@ def onDir(ev):
 	emit(ABS_Y, (yvd-yvu)*ra)
 def onDirRel(ev):
 	global xvl, xvr, yvu, yvd
-	if ev.keycode == 111:
+	if ev.keycode == 111 or ev.keycode == 8320768:
 		yvu=0
-	if ev.keycode == 113:
+	if ev.keycode == 113 or ev.keycode == 8124162:
 		xvl=0
-	if ev.keycode == 114:
+	if ev.keycode == 114 or ev.keycode == 8189699:
 		xvr=0
-	if ev.keycode == 116:
+	if ev.keycode == 116 or ev.keycode == 8255233:
 		yvd=0
 	emit(ABS_X, (xvr-xvl)*ra)
 	emit(ABS_Y, (yvd-yvu)*ra)
