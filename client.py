@@ -43,6 +43,8 @@ def onTrig(ev):
 		if ev.type == "2":
 			t = 1
 		emit(r, t)
+	print r
+	print e.keysym.lower()
 xvl = 0
 xvr = 0
 yvu = 0
