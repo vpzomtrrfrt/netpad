@@ -22,13 +22,13 @@ def onEnter(event):
 	emit(BTN_8,1)
 def onEnterRel(event):
 	emit(BTN_8,0)
-def onCtrl(ev):
+def onCtrl(ev=None):
 	emit(BTN_1,1)
-def onCtrlRel(ev):
+def onCtrlRel(ev=None):
 	emit(BTN_1,0)
-def onShift(ev):
+def onShift(ev=None):
 	emit(BTN_0,1)
-def onShiftRel(ev):
+def onShiftRel(ev=None):
 	emit(BTN_0,0)
 def onTrig(ev):
 	r = None
@@ -74,7 +74,7 @@ def onDirRel(ev):
 	emit(ABS_X, (xvr-xvl)*ra)
 	emit(ABS_Y, (yvd-yvu)*ra)
 def onKey(ev):
-	if ev.keycode == 131330:
+	if ev.keycode == 131074:
 		if ev.type == "2":
 			onShift()
 		else:
