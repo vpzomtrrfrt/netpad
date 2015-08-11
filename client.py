@@ -32,11 +32,11 @@ def onShiftRel(ev):
 	emit(BTN_0,0)
 def onTrig(ev):
 	r = None
-	if ev.keycode == 52:
+	if ev.keysym.lower() == "z":
 		r = BTN_2
-	if ev.keycode == 53:
+	if ev.keysym.lower() == "x":
 		r = BTN_3
-	if ev.keycode == 54:
+	if ev.keysym.lower() == "c":
 		r = BTN_4
 	if not (r == None):
 		t = 0
