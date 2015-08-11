@@ -14,7 +14,9 @@ ABS_X = (3, 0)
 ABS_Y = (3, 1)
 
 def emit(t, v):
-	s.send(str(t[0])+":"+str(t[1])+":"+str(v)+"\n")
+	msg = str(t[0])+":"+str(t[1])+":"+str(v)+"\n"
+	print msg
+	s.send(msg)
 
 def onEnter(event):
 	emit(BTN_8,1)
