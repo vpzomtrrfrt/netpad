@@ -84,11 +84,10 @@ def onKey(ev):
 			onCtrl()
 		else:
 			onCtrlRel()
-	print ev.keysym
-	print ev.keycode
 root = tk.Tk()
 root.geometry('300x200')
 root.bind('<KeyPress>', onKey)
+root.bind('<KeyRelease>', onKey)
 root.bind('<KeyPress-Return>', onEnter)
 root.bind('<KeyRelease-Return>', onEnterRel)
 root.bind('<KeyPress-Control_L>', onCtrl)
