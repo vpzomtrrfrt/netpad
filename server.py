@@ -20,6 +20,7 @@ def listenthread(c):
 	while True:
 		l = f.readline()
 		s = l.split(':')
+		print l
 		if len(s)==3:
 			dev.emit((int(s[0]), int(s[1])), int(s[2]))
 		else:

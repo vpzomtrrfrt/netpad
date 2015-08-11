@@ -48,7 +48,7 @@ yvd = 0
 ra = 32767
 def onDir(ev):
 	global xvl, xvr, yvu, yvd
-	#print ev.keycode
+	print ev.keycode
 	if ev.keycode == 111:
 		yvu=1
 	if ev.keycode == 113:
