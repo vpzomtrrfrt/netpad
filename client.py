@@ -43,8 +43,6 @@ def onTrig(ev):
 		if ev.type == "2":
 			t = 1
 		emit(r, t)
-	print r
-	print ev.keysym.lower()
 xvl = 0
 xvr = 0
 yvu = 0
@@ -75,8 +73,12 @@ def onDirRel(ev):
 		yvd=0
 	emit(ABS_X, (xvr-xvl)*ra)
 	emit(ABS_Y, (yvd-yvu)*ra)
+def onKey(ev):
+	print ev.keysym
+	print ev.keycode
 root = tk.Tk()
 root.geometry('300x200')
+root.bind('<KeyPress>', onKey)
 root.bind('<KeyPress-Return>', onEnter)
 root.bind('<KeyRelease-Return>', onEnterRel)
 root.bind('<KeyPress-Control_L>', onCtrl)
