@@ -74,6 +74,16 @@ def onDirRel(ev):
 	emit(ABS_X, (xvr-xvl)*ra)
 	emit(ABS_Y, (yvd-yvu)*ra)
 def onKey(ev):
+	if ev.keycode == 131330:
+		if ev.type == "2":
+			onShift()
+		else:
+			onShiftRel()
+	if ev.keycode == 262145:
+		if ev.type == "2":
+			onCtrl()
+		else:
+			onCtrlRel()
 	print ev.keysym
 	print ev.keycode
 root = tk.Tk()
