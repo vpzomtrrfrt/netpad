@@ -85,6 +85,7 @@ def onKey(ev):
 		else:
 			onCtrlRel()
 root = tk.Tk()
+root.wm_title("netpad")
 root.geometry('300x200')
 root.bind('<KeyPress>', onKey)
 root.bind('<KeyRelease>', onKey)
