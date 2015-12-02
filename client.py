@@ -1,8 +1,17 @@
-import Tkinter as tk
+import sys
+if sys.version_info[0] >= 3:
+	import tkinter as tk
+else:
+	import Tkinter as tk
 import socket
+def get_input(pr):
+	if sys.version_info[0] >= 3:
+		return input(pr)
+	else:
+		return raw_input(pr)
 
 s = socket.socket()
-s.connect((raw_input("Connect to: "), 4263))
+s.connect((get_input("Connect to: "), 4263))
 
 BTN_0 = (1, 256)
 BTN_1 = (1, 257)
@@ -15,8 +24,8 @@ ABS_Y = (3, 1)
 
 def emit(t, v):
 	msg = str(t[0])+":"+str(t[1])+":"+str(v)+"\n"
-	print msg
-	s.send(msg)
+	print(msg)
+	s.send(msg.encode('utf-8'))
 
 def onEnter(event):
 	emit(BTN_8,1)
@@ -50,7 +59,7 @@ yvd = 0
 ra = 32767
 def onDir(ev):
 	global xvl, xvr, yvu, yvd
-	print ev.keycode
+	print(ev.keycode)
 	if ev.keycode == 111 or ev.keycode == 8320768:
 		yvu=1
 	if ev.keycode == 113 or ev.keycode == 8124162:

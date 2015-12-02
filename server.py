@@ -20,11 +20,11 @@ def listenthread(c):
 	while True:
 		l = f.readline()
 		s = l.split(':')
-		print l
+		print(l)
 		if len(s)==3:
 			dev.emit((int(s[0]), int(s[1])), int(s[2]))
 		else:
-			print l+" is not valid"
+			print(l+" is not valid")
 			c.close()
 			break
 
@@ -34,7 +34,7 @@ s.bind(('', port))
 s.listen(5)
 while True:
 	c, a = s.accept()
-	print str(a)+" has connected"
+	print(str(a)+" has connected")
 	t = threading.Thread(target=listenthread,args=(c,))
 	t.daemon = True
 	t.start()
